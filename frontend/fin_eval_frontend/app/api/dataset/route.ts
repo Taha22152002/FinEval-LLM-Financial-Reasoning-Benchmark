@@ -7,22 +7,34 @@ export async function GET(request: NextRequest) {
   const file = searchParams.get('file') || 'easy.jsonl';
   
   // Validate file name to prevent path traversal
-  if (!file.match(/^[a-z_]+\.jsonl$/)) {
+  // Allow judgment files: gemini3_easy_judgement.jsonl, fin_o1_medium_judgement.jsonl, etc.
+  if (!file.match(/^[a-z0-9_]+\.jsonl$/)) {
     return NextResponse.json({ error: 'Invalid file name' }, { status: 400 });
   }
 
   try {
-    // Try to read from the data folder in the project root
-    const dataPath = path.join(process.cwd(), '..', '..', 'financial-reasoning-datasets', file);
+    // Try to read from public folder first (for Vercel deployment)
+    const publicPath = path.join(process.cwd(), 'public', file);
     
-    // Fallback to frontend data folder
-    let filePath = dataPath;
+    // Fallback: try with _judgement suffix if not found
+    let filePath = publicPath;
+    if (!fs.existsSync(filePath) && !file.includes('_judgement')) {
+      const judgementFile = file.replace('.jsonl', '_judgement.jsonl');
+      filePath = path.join(process.cwd(), 'public', judgementFile);
+    }
+    
+    // Fallback to financial-reasoning-datasets folder (for local dev)
+    if (!fs.existsSync(filePath)) {
+      filePath = path.join(process.cwd(), '..', '..', 'financial-reasoning-datasets', file);
+    }
+    
+    // Another fallback to data folder
     if (!fs.existsSync(filePath)) {
       filePath = path.join(process.cwd(), 'data', file);
     }
     
     if (!fs.existsSync(filePath)) {
-      return NextResponse.json({ error: 'Dataset file not found' }, { status: 404 });
+      return NextResponse.json({ error: `Dataset file not found: ${file}` }, { status: 404 });
     }
 
     const fileContent = fs.readFileSync(filePath, 'utf-8');

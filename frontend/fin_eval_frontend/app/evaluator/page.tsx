@@ -24,7 +24,10 @@ interface JudgeResult {
 }
 
 // Use API route proxy if available, otherwise direct backend URL
-const API_BASE_URL = "http://127.0.0.1:8000/api";
+// If NEXT_PUBLIC_API_URL is set, it should be the full backend URL (e.g., https://backend.onrender.com)
+// If not set, we use Next.js rewrites via /api prefix
+const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_BASE_URL = BACKEND_URL ? `${BACKEND_URL}/api` : '/api';
 
 export default function Evaluator() {
     const [tasks, setTasks] = useState<Record<string, Task>>({});

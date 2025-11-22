@@ -4,8 +4,8 @@ const FunFacts = () => {
   return (
     <div>
       <ul>
-        {loadingFacts.map((fact) => (
-            <li>{fact}</li>
+        {loadingFacts.map((fact, e) => (
+            <li key={e}>{fact}</li>
         ))}
       </ul>
     </div>

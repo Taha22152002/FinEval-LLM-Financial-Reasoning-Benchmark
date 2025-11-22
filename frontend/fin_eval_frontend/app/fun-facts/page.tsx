@@ -1,4 +1,4 @@
-import { loadingFacts } from "@/public/data/funFact"
+import { loadingFacts } from "@/lib/funFact"
 
 const FunFacts = () => {
   return (

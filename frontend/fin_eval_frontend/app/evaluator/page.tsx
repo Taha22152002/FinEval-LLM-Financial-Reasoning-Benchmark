@@ -49,7 +49,7 @@ export default function Evaluator() {
                 const response = await fetch('/api/dataset?file=easy.jsonl');
                 if (!response.ok) {
                     // Fallback: try loading from public data folder
-                    const fallbackResponse = await fetch('/data/fin_o1_easy.jsonl');
+                    const fallbackResponse = await fetch('/data/medium.jsonl');
                     if (!fallbackResponse.ok) {
                         throw new Error('Failed to load dataset. Please ensure dataset files are available.');
                     }

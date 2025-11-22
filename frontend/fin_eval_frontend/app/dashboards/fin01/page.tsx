@@ -2,13 +2,13 @@
 
 import { useRouter } from 'next/navigation';
 
-export default function GeminiDashboard() {
+export default function Fin01Dashboard() {
   const router = useRouter();
 
   const difficultyCards = [
     {
       title: "Overall Dashboard",
-      description: "Comprehensive view of all Gemini 3 evaluations",
+      description: "Comprehensive view of all Fin-01-14B evaluations",
       difficulty: "overall",
       bgColor: "bg-orange-100",
       textColor: "text-orange-600",
@@ -41,25 +41,25 @@ export default function GeminiDashboard() {
   ];
 
   const handleDifficultyNavigation = (difficulty: string) => {
-    router.push(`/dashboards/gemini/${difficulty}`);
+    router.push(`/dashboards/fin01/${difficulty}`);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-6">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
           <button
             onClick={() => router.push('/')}
-            className="flex items-center text-blue-600 hover:text-blue-800 mb-4 transition-colors"
+            className="flex items-center text-purple-600 hover:text-purple-800 mb-4 transition-colors"
           >
             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
             Back to All Models
           </button>
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">Gemini 3 Dashboards</h1>
-          <p className="text-lg text-gray-600">Select a difficulty level to analyze Gemini 3 performance metrics and insights.</p>
+          <h1 className="text-4xl font-bold text-gray-800 mb-2">Fin-01-14B Dashboards</h1>
+          <p className="text-lg text-gray-600">Select a difficulty level to analyze Fin-01-14B performance metrics and insights.</p>
         </div>
 
         {/* Difficulty Selection */}
@@ -67,7 +67,7 @@ export default function GeminiDashboard() {
           {difficultyCards.map((card, index) => (
             <div
               key={index}
-              className={`relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer border-l-4 ${card.borderColor}`}
+              className={`relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-purple-500 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer border-l-4 ${card.borderColor}`}
               onClick={() => handleDifficultyNavigation(card.difficulty)}
             >
               <div>
@@ -103,3 +103,4 @@ export default function GeminiDashboard() {
     </div>
   );
 }
+

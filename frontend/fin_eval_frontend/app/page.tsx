@@ -1,11 +1,38 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { loadJudgmentData } from '@/lib/judgmentData';
 
 export default function LandingPage() {
   const router = useRouter();
   const [selectedModel, setSelectedModel] = useState<'gemini' | 'fin01' | null>(null);
+  const [totalQuestions, setTotalQuestions] = useState<number>(0);
+
+  useEffect(() => {
+    async function calculateTotalQuestions() {
+      try {
+        const [geminiEasy, geminiMedium, geminiHard, fino1Easy, fino1Medium, fino1Hard] = await Promise.all([
+          loadJudgmentData('gemini3', 'easy'),
+          loadJudgmentData('gemini3', 'medium'),
+          loadJudgmentData('gemini3', 'hard'),
+          loadJudgmentData('fin_o1', 'easy'),
+          loadJudgmentData('fin_o1', 'medium'),
+          loadJudgmentData('fin_o1', 'hard'),
+        ]);
+        
+        const total = geminiEasy.length + geminiMedium.length + geminiHard.length + 
+                     fino1Easy.length + fino1Medium.length + fino1Hard.length;
+        setTotalQuestions(total);
+      } catch (err) {
+        console.error('Error loading question counts:', err);
+        // Fallback to 0 if there's an error
+        setTotalQuestions(0);
+      }
+    }
+    
+    calculateTotalQuestions();
+  }, []);
 
   const modelCards = [
     {
@@ -230,7 +257,7 @@ export default function LandingPage() {
               <div className="text-gray-600 mt-2">Models Benchmarked</div>
             </div>
             <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-              <div className="text-3xl font-bold text-orange-600">150</div>
+              <div className="text-3xl font-bold text-orange-600">{totalQuestions || '...'}</div>
               <div className="text-gray-600 mt-2">Total Questions</div>
             </div>
             <div className="bg-white rounded-xl shadow-lg p-6 text-center">

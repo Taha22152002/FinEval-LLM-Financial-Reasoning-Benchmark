@@ -72,7 +72,7 @@ export default function EasyDashboard() {
             <p className="text-lg text-gray-600">Financial reasoning questions with basic complexity</p>
           </div>
           <button
-            onClick={() => router.push('/dashboards')}
+            onClick={() => router.push('/')}
             className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-green-600 bg-white hover:bg-green-50 transition duration-150 ease-in-out shadow-sm"
           >
             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

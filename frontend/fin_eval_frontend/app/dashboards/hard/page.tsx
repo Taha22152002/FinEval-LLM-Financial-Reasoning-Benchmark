@@ -78,7 +78,7 @@ export default function HardDashboard() {
             <p className="text-lg text-gray-600">Advanced financial reasoning questions with high complexity</p>
           </div>
           <button
-            onClick={() => router.push('/dashboards')}
+            onClick={() => router.push('/')}
             className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-red-600 bg-white hover:bg-red-50 transition duration-150 ease-in-out shadow-sm"
           >
             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

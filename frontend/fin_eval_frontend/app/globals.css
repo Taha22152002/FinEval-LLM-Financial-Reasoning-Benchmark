@@ -1,0 +1,4 @@
+body {
+  font-family: var(--font-poppins);
+  background: linear-gradient(to bottom, #fff, #ff9953);
+}

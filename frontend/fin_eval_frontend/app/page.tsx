@@ -87,7 +87,7 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-orange-100 flex flex-col">
+    <div className="bg-gradient-to-br from-orange-50 to-orange-100 flex flex-col">
       {/* Hero Section */}
       <div className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto w-full">

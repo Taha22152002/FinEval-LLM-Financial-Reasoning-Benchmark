@@ -29,7 +29,7 @@ export default function RootLayout({
       </head>
       <body className={`${poppins.variable} antialiased p-4 md:p-8`}>
         <Header />
-        <main id="app" className="flex flex-col lg:flex-row gap-6">
+        <main>
           {children}
         </main>
       </body>

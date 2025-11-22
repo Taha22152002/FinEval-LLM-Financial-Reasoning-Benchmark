@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { getRandomFact } from '../../lib/funFact';
 
 interface Task {
     id: string;
@@ -34,6 +35,7 @@ export default function Evaluator() {
     const [judgeResults, setJudgeResults] = useState<JudgeResult[]>([]);
     const [showResults, setShowResults] = useState(false);
     const [showInitialMessage, setShowInitialMessage] = useState(true);
+    const [loadingFact, setLoadingFact] = useState<string>('');
     
     const taskSelectorRef = useRef<HTMLSelectElement>(null);
     const taskContextRef = useRef<HTMLTextAreaElement>(null);
@@ -121,6 +123,7 @@ export default function Evaluator() {
         setError('');
         setShowResults(false);
         setShowInitialMessage(false);
+        setLoadingFact(getRandomFact());
 
         try {
             // Run both models in parallel
@@ -310,6 +313,17 @@ export default function Evaluator() {
                         <div className="text-center py-10">
                             <div className="animate-spin inline-block w-8 h-8 border-4 rounded-full border-t-indigo-500 border-indigo-200"></div>
                             <p className="mt-3 text-indigo-600">Running Gemini 3 and Fin-o1-14B models...</p>
+                            {loadingFact && (
+                                <div className="mt-6 p-4 bg-gradient-to-r from-orange-50 to-indigo-50 rounded-lg border border-orange-200 max-w-2xl mx-auto">
+                                    <p className="text-sm font-semibold text-orange-700 mb-2 flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                        </svg>
+                                        Did You Know?
+                                    </p>
+                                    <p className="text-gray-700 italic leading-relaxed">{loadingFact}</p>
+                                </div>
+                            )}
                         </div>
                     )}
 

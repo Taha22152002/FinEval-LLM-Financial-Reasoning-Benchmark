@@ -4,7 +4,7 @@ export default function Home() {
         {/* <!-- LEFT PANEL: Task Selection & Input Control --> */}
         <div className="lg:w-1/3 bg-white p-6 rounded-xl shadow-lg h-fit">
             <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mr-2 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 0-9.25 10c0 5.5 4.5 10 10 10s10-4.5 10-10C22.25 4.5 17.75 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mr-2 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 0-9.25 10c0 5.5 4.5 10 10 10s10-4.5 10-10C22.25 4.5 17.75 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
                 Select Evaluation Task
             </h2>
 
@@ -15,7 +15,7 @@ export default function Home() {
                 <option value="task_debt_equity">Task 002: Debt-to-Equity Calculation</option>
             </select>
             
-            <button id="evaluate-button" className="w-full py-3 px-4 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-150 disabled:opacity-50" disabled>
+            <button id="evaluate-button" className="w-full py-3 px-4 bg-orange-600 text-white font-semibold rounded-lg shadow-md hover:bg-orange-700 transition duration-150 disabled:opacity-50">
                 Run Evaluation
             </button>
 

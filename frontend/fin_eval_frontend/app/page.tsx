@@ -10,7 +10,7 @@ export default function Home() {
 
             <label htmlFor="task-selector" className="block text-sm font-medium text-gray-700 mb-2">Evaluation Scenario</label>
             <select id="task-selector" className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mb-4">
-                <option value="" disabled selected>Search or Select Task ID / Scenario Name...</option>
+                <option value="" disabled>Search or Select Task ID / Scenario Name...</option>
                 <option value="task_revenue_forecast">Task 001: Q4 Revenue Forecast</option>
                 <option value="task_debt_equity">Task 002: Debt-to-Equity Calculation</option>
             </select>
@@ -37,7 +37,7 @@ export default function Home() {
         {/* <!-- RIGHT PANEL: Evaluation Report --> */}
         <div className="lg:w-2/3 bg-white p-6 rounded-xl shadow-lg min-h-[500px]">
             <h2 id="report-heading" className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mr-2 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2h6v6m-6-6-8 8m0 0v-4m0 4h4M9 14l-4 4m0 0v-4m0 4h4m4-10-8 8m8-8v4m-8 8v4m-4-4h-4m4 4h4m4-4h4"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mr-2 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2h6v6m-6-6-8 8m0 0v-4m0 4h4M9 14l-4 4m0 0v-4m0 4h4m4-10-8 8m8-8v4m-8 8v4m-4-4h-4m4 4h4m4-4h4"/></svg>
                 Evaluation Results • Judge Model (Gemini-2.5-PRO)
             </h2>
             

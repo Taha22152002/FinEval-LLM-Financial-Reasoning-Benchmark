@@ -1,0 +1,9 @@
+.smooth {
+  color: #222;
+  transition: color 0.45s ease; /* duration + easing */
+  cursor: pointer;
+}
+
+.smooth:hover {
+  color: #ff7a00; /* orange */
+}

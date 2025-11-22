@@ -9,6 +9,7 @@ const Header = () => {
   const router = useRouter();
 
   const isDashboardPage = pathname?.includes("/dashboards");
+  const isEvaluatorPage = pathname?.includes("/evaluator");
 
   const redirectHome = () => {
     router.push("/");
@@ -30,44 +31,71 @@ const Header = () => {
         </div>
         <nav className="flex space-x-4">
           {isDashboardPage ? (
+            <>
+              <Link
+                href="/"
+                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-orange-600 bg-orange-100 hover:bg-orange-200 transition duration-150 ease-in-out"
+              >
+                <svg
+                  className="w-4 h-4 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                  />
+                </svg>
+                Back to Evaluator
+              </Link>
+            </>
+          ) : (
+            <>
+              {!isEvaluatorPage && (
+                <Link
+                  href="/evaluator"
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-orange-600 bg-orange-100 hover:bg-orange-200 transition duration-150 ease-in-out"
+                >
+                  <svg
+                    className="w-4 h-4 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m5 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  Evaluator
+                </Link>
+              )}
+            </>
+          )}
+          {isEvaluatorPage && (
             <Link
               href="/"
               className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-orange-600 bg-orange-100 hover:bg-orange-200 transition duration-150 ease-in-out"
             >
               <svg
-                className="w-4 h-4 mr-2"
+                xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="w-4 h-4"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                />
+                <path d="M3 9.5l9-7 9 7" />
+                <path d="M5 10v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V10" />
               </svg>
-              Back to Evaluator
-            </Link>
-          ) : (
-            <Link
-              href="/dashboards"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-orange-600 bg-orange-100 hover:bg-orange-200 transition duration-150 ease-in-out"
-            >
-              <svg
-                className="w-4 h-4 mr-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                />
-              </svg>
-              Dashboards
+              &nbsp;Return to home page
             </Link>
           )}
         </nav>

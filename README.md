@@ -10,7 +10,7 @@ The project compares Google Gemini‑3 and Fin‑o1‑14B on curated financial q
 ## Project Structure
 - `frontend/fin_eval_frontend/`: Next.js app with dashboards and an interactive evaluator UI.
 - `backend/`: Flask API server and Python helpers for Gemini‑3, Fin‑o1, and judging.
-- `Financial_Reasoning_Datasets/`: JSONL datasets (e.g., `easy.jsonl`, `hard.jsonl`).
+- `Financial_Reasoning_Datasets/`: JSONL datasets (e.g., `easy.jsonl`, `medium.jsonl`,`hard.jsonl`).
 - `Gemini3/` and `Fin_o1/`: Batch benchmarking and judgment scripts plus saved results.
 
 Key backend entry points:

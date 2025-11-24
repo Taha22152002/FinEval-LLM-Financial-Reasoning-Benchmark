@@ -4,6 +4,11 @@ A unified benchmark to evaluate Large Language Models on financial reasoning tas
 - An interactive Next.js frontend to run evaluations and visualize scores.
 - A Flask backend exposing endpoints to query models and a judge.
 - Batch scripts to generate model outputs and judge results across datasets.
+- link: https://fineval-financial-reasoning-benchma-alpha.vercel.app/
+
+# FinEval: Introduction & Demo
+
+https://github.com/user-attachments/assets/5b3cc76e-d453-4fc7-8363-9f32e948605f
 
 The project compares Google Gemini‑3 and Fin‑o1‑14B on curated financial questions, then uses a judge model to score answer accuracy and reasoning quality.
 

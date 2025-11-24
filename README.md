@@ -10,8 +10,105 @@ The project compares Google Gemini‑3 and Fin‑o1‑14B on curated financial q
 ## Project Structure
 - `frontend/fin_eval_frontend/`: Next.js app with dashboards and an interactive evaluator UI.
 - `backend/`: Flask API server and Python helpers for Gemini‑3, Fin‑o1, and judging.
-- `Financial_Reasoning_Datasets/`: JSONL datasets (e.g., `easy.jsonl`, `medium.jsonl`,`hard.jsonl`).
+- `Financial_Reasoning_Datasets/`: JSONL datasets (e.g., `easy.jsonl`, `hard.jsonl`).
 - `Gemini3/` and `Fin_o1/`: Batch benchmarking and judgment scripts plus saved results.
+
+## Folder Structure
+
+```
+FinEval-LLM-Financial-Reasoning-Benchmark/
+├── backend/
+│   ├── __init__.py
+│   ├── api_server.py
+│   ├── fin_o1.py
+│   ├── gemini_3_model.py
+│   └── judge.py
+├── documents/
+│   ├── DEPLOYMENT_SUMMARY.md
+│   ├── README_BACKEND.md
+│   ├── README_DEPLOYMENT.md
+│   └── RENDER_SETUP.md
+├── frontend/
+│   └── fin_eval_frontend/
+│       ├── app/
+│       │   ├── api/
+│       │   │   └── dataset/
+│       │   │       └── route.ts
+│       │   ├── dashboards/
+│       │   │   ├── easy/page.tsx
+│       │   │   ├── fin01/
+│       │   │   │   ├── easy/page.tsx
+│       │   │   │   ├── hard/page.tsx
+│       │   │   │   ├── medium/page.tsx
+│       │   │   │   ├── overall/page.tsx
+│       │   │   │   └── page.tsx
+│       │   │   ├── gemini/
+│       │   │   │   ├── easy/page.tsx
+│       │   │   │   ├── hard/page.tsx
+│       │   │   │   ├── medium/page.tsx
+│       │   │   │   ├── overall/page.tsx
+│       │   │   │   └── page.tsx
+│       │   │   ├── hard/page.tsx
+│       │   │   ├── medium/page.tsx
+│       │   │   └── overall/page.tsx
+│       │   ├── evaluator/page.tsx
+│       │   ├── fun-facts/page.tsx
+│       │   ├── favicon.ico
+│       │   ├── globals.css
+│       │   ├── layout.tsx
+│       │   ├── normalize.css
+│       │   └── page.tsx
+│       ├── components/
+│       │   ├── DashboardStats.tsx
+│       │   ├── DashboardTable.tsx
+│       │   ├── Header.module.css
+│       │   └── Header.tsx
+│       ├── lib/
+│       │   ├── funFact.ts
+│       │   └── judgmentData.ts
+│       ├── public/
+│       │   ├── data/
+│       │   │   ├── fin_o1_easy.jsonl
+│       │   │   ├── fin_o1_hard.jsonl
+│       │   │   ├── fin_o1_medium.jsonl
+│       │   │   ├── gemini3_easy.jsonl
+│       │   │   ├── gemini3_hard.jsonl
+│       │   │   ├── medium.jsonl
+│       │   │   └── funFact.ts
+│       │   ├── fin_o1_easy_judgement.jsonl
+│       │   ├── fin_o1_hard_judgement.jsonl
+│       │   ├── fin_o1_medium_judgement.jsonl
+│       │   ├── gemini3_easy_judgement.jsonl
+│       │   ├── gemini3_hard_judgement.jsonl
+│       │   ├── gemini3_medium_judgement.jsonl
+│       │   ├── file.svg
+│       │   ├── globe.svg
+│       │   ├── next.svg
+│       │   ├── vercel.svg
+│       │   └── window.svg
+│       ├── .gitignore
+│       ├── README.md
+│       ├── README_VERCEL.md
+│       ├── eslint.config.mjs
+│       ├── next.config.ts
+│       ├── package-lock.json
+│       ├── package.json
+│       ├── postcss.config.mjs
+│       ├── tsconfig.json
+│       └── vercel.json
+├── .gitignore
+├── .vercel/
+│   └── project.json
+├── .vercelignore
+├── Procfile
+├── app.py
+├── render.yaml
+├── requirements.txt
+├── runtime.txt
+├── vercel.json
+├── wsgi.py
+└── README.md
+```
 
 Key backend entry points:
 - `backend/api_server.py` exposes `GET /health`, `POST /api/gemini3`, `POST /api/fino1`, `POST /api/judge`.
